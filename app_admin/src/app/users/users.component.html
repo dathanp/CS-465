@@ -1,0 +1,25 @@
+<div class="users-container">
+    <h1>All Users</h1>
+    
+    <p *ngIf="errorMessage" class="error">{{ errorMessage }}</p>
+    
+    <table *ngIf="users.length > 0" class="user-table">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Role</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let user of users">
+          <td>{{ user.name }}</td>
+          <td>{{ user.email }}</td>
+          <td>{{ user.role }}</td>
+        </tr>
+      </tbody>
+    </table>
+    
+    <p *ngIf="users.length === 0 && !errorMessage">No users found.</p>
+  </div>
+  

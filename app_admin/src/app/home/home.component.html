@@ -1,0 +1,27 @@
+<div class="home-container">
+  <h1>Welcome, {{ currentUser?.name || 'Guest' }}!</h1>
+
+  <!-- Admin Options -->
+  <div *ngIf="isAdminUser; else userView">
+    <h2>Admin Dashboard</h2>
+    <div class="options-grid">
+      <div *ngFor="let option of adminOptions" class="option-card" (click)="navigateTo(option.route, option.isExternal)">
+        <span class="icon">{{ option.icon }}</span>
+        <h3>{{ option.title }}</h3>
+      </div>
+    </div>
+  </div>
+
+  <!-- User Options -->
+  <ng-template #userView>
+    <h2>User Dashboard</h2>
+    <div class="options-grid">
+      <div class="option-card" (click)="navigateTo('list-trips')">
+        <span class="icon">✈️</span>
+        <h3>View Trips</h3>
+      </div>
+      <button class="btn user-site-btn" (click)="navigateToUserSite()">Go to User Site</button>
+
+    </div>
+  </ng-template>
+</div>

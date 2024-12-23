@@ -1,0 +1,44 @@
+.navbar {
+    padding: 0.5rem 1rem;
+    background-color: #007bff;
+  }
+  
+.navbar .btn {
+  font-weight: bold; /* Makes the text more prominent */
+  border: 1px solid #ffffff; /* Adds a subtle border */
+  border-radius: 5px; /* Smooth edges for a modern look */
+  background-color: #ffffff; /* White background for contrast */
+  color: #0d6efd; /* Primary blue text */
+  transition: background-color 0.2s, color 0.2s; /* Smooth transitions */
+}
+
+.navbar .btn:hover {
+  background-color: #e2e6ea; /* Light gray on hover */
+  color: #0a58ca; /* Slightly darker blue text */
+}
+
+  .navbar-brand {
+    font-weight: bold;
+    color: #ffffff;
+  }
+  
+  .navbar-brand img {
+    margin-right: 0.5rem;
+  }
+  
+  .navbar-dark .nav-link {
+    color: #ffffff;
+  }
+  
+  .navbar-dark .nav-link:hover {
+    color: #d1d1d1;
+  }
+  
+  .navbar-toggler {
+    border-color: #ffffff;
+  }
+  
+  .container-fluid {
+    padding: 0 2rem;
+  }
+  

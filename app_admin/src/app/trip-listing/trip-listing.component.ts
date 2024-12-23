@@ -1,10 +1,10 @@
-import { TripDataService } from './../services/trip-data.service';
+import { TripDataService } from '../services/trip-data.service';
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { TripCardComponent } from '../trip-card/trip-card.component';
 import { Trip } from '../models/trip';
-import { trips } from '../data/trips';
 import { Router } from '@angular/router';
+import { AuthenticationService } from '../services/authentication.service'; // Import the service
 
 @Component({
   selector: 'app-trip-listing',
@@ -14,43 +14,59 @@ import { Router } from '@angular/router';
   templateUrl: './trip-listing.component.html',
   styleUrls: ['./trip-listing.component.css']
 })
-export class TripListingComponent implements OnInit{
+export class TripListingComponent implements OnInit {
 
-  trips!: Trip[];
-  message: string ='';
+  trips: Trip[] = []; // Initialize trips as an empty array
+  message: string = '';
 
   constructor(
     private tripDataService: TripDataService,
-    private router: Router
-    ) {
-    console.log('trip-listing constructor');
+    private router: Router,
+    private authenticationService: AuthenticationService // Inject the service here
+  ) {
+    console.log('TripListingComponent constructor');
   }
 
-  public addTrip():void {
+  public addTrip(): void {
     this.router.navigate(['add-trip']);
+  }
+
+  public get isAdmin(): boolean {
+    return this.authenticationService.isAdmin(); // Use the isAdmin method from AuthenticationService
+  }
+
+  fetchTrips(): void {
+    this.tripDataService.getTrips().subscribe({
+      next: (data) => {
+        this.trips = data;
+      },
+      error: (err) => {
+        console.error('Error fetching trips:', err);
+      }
+    });
   }
 
   private getStuff(): void {
     this.tripDataService.getTrips()
       .subscribe({
-        next: (value: any) => {
-          this.trips = value;
-          if(value.length > 0)
-          {
-            this.message = 'There are ' + value.length + ' trips available.';
-          }
-          else {
-            this.message = 'There were no trips retireved from the database.';
+        next: (trips: Trip[]) => { // Properly type the response
+          this.trips = trips;
+          if (trips.length > 0) {
+            this.message = `There are ${trips.length} trips available.`;
+          } else {
+            this.message = 'There were no trips retrieved from the database.';
           }
           console.log(this.message);
         },
         error: (error: any) => {
-          console.log('Error: ' + error);
+          this.message = 'Failed to load trips. Please try again later.';
+          console.error('Error fetching trips:', error);
         }
-      })
+      });
   }
+
   ngOnInit(): void {
-    console.log('ngOnInit');
+    console.log('TripListingComponent ngOnInit');
     this.getStuff();
   }
 }

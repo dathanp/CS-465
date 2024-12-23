@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{title}}</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <div id="background">
+        <div id="page">
+            {{> header }} <!-- Include your header partial -->
+            <div id="contents">
+                <div class="box">
+                    <div>
+                        <div class="body">
+                            <h1>{{trip.name}}</h1>
+                            <img src="/images/{{trip.image}}" alt="{{trip.name}}" style="max-width: 100%; height: auto;">
+                            <p><strong>Length:</strong> {{trip.length}}</p>
+                            <p><strong>Resort:</strong> {{trip.resort}}</p>
+                            <p><strong>Price per Person:</strong> ${{trip.perPerson}}</p>
+                            <p><strong>Description:</strong></p>
+                            {{{trip.description}}} <!-- Use triple braces for raw HTML content -->
+
+                            <!-- Reservation Form -->
+                            <form action="/reservations" method="POST">
+                                <input type="hidden" name="tripId" value="{{trip._id}}">
+                                <label for="reservationDate">Choose Reservation Date:</label>
+                                <input type="date" id="reservationDate" name="reservationDate" required>
+                                <button type="submit">Book Now</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {{> footer }} <!-- Include your footer partial -->
+        </div>
+    </div>
+</body>
+</html>

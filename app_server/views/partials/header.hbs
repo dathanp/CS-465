@@ -1,29 +1,20 @@
 <div id="header">
-    <div id="logo">
-        <a href="index.html"><img src="images/logo.png" alt="LOGO" height="100" width="200"></a>
-    </div>
     <div id="navigation">
         <ul>
+            <li id="logo"><a href="/"><img src="/images/logo.png" alt="LOGO"></a></li>
+            <li><a href="/travel">Travel</a></li>
+            <li><a href="/news">News</a></li>
+            <li><a href="/reservations">Reservations</a></li>
+            
+            <li><a href="http://localhost:4200/">Admin</a></li>
+            
+            <li><a href="/checkout">Checkout</a></li>
             <li>
-                <a href="index.html">Home</a>
-            </li>
-            <li class="selected">
-                <a href="/travel">Travel</a>
-            </li>
-            <li>
-                <a href="rooms.html">Rooms</a>
-            </li>
-            <li>
-                <a href="meals.html">Meals</a>
-            </li>
-            <li>
-                <a href="news.html">News</a>
-            </li>
-            <li>
-                <a href="about.html">About</a>
-            </li>
-            <li>
-                <a href="contact.html">Contact</a>
+                {{#if user}}
+                <a href="/auth/logout">Logout</a>
+                {{else}}
+                <a href="/auth/login">Login</a>
+                {{/if}}
             </li>
         </ul>
     </div>

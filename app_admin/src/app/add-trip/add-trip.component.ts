@@ -27,7 +27,8 @@ export class AddTripComponent implements OnInit{
       _id:[],
       code: ['', Validators.required],
       name: ['', Validators.required],
-      length: ['', Validators.required],
+      nights: [0, [Validators.required, Validators.min(0)]],
+      days: [0, [Validators.required, Validators.min(0)]],
       start: ['', Validators.required],
       resort: ['', Validators.required],
       perPerson: ['', Validators.required],
@@ -36,20 +37,27 @@ export class AddTripComponent implements OnInit{
     })
   }
 
-  public onSubmit(){
+  public onSubmit(): void {
     this.submitted = true;
-    if(this.addForm.valid){
-      this.tripService.addTrip(this.addForm.value)
-      .subscribe({
-        next:(data:any) => {
-          console.log(data);
+  
+    if (this.addForm.valid) {
+      // Combine nights and days into a single length field
+      const formData = {
+        ...this.addForm.value,
+        length: `${this.addForm.value.nights}  / ${this.addForm.value.days} `
+      };
+  
+      this.tripService.addTrip(formData).subscribe({
+        next: (data: any) => {
+          console.log('Trip added successfully:', data);
           this.router.navigate(['']);
         },
         error: (error: any) => {
-          console.log('Error: ' + error);
+          console.error('Error adding trip:', error);
         }
       });
     }
   }
+  
   get f() {return this.addForm.controls;}
 }

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{title}}</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    {{> header }}
+    <div class="container">
+        <h1 class="page-title">Reservations</h1>
+        {{#if reservations.length}}
+            <table class="reservations-table">
+                <thead>
+    <tr>
+        <th>Image</th>
+        <th>Trip Name</th>
+        <th>Reservation Date</th> 
+        <th>Length of Stay</th> 
+        <th>Resort</th>
+        <th>Price</th>
+        <th>Status</th>
+        <th>Action</th>
+    </tr>
+</thead>
+<tbody>
+    {{#each reservations}}
+        <tr>
+            <td><img src="{{tripImage}}" alt="{{tripName}}" class="trip-thumbnail"></td>
+            <td>{{tripName}}</td>
+            <td>{{reservationDate}}</td> 
+            <td>{{tripLength}}</td> 
+            <td>{{tripResort}}</td>
+            <td>{{tripPrice}}</td>
+            <td class="status {{status}}">{{status}}</td>
+            <td>
+                <a href="/reservations/edit/{{_id}}" class="btn">Edit</a>
+                <a href="/reservations/cancel/{{_id}}" class="btn cancel-btn">Cancel</a>
+            </td>
+        </tr>
+    {{/each}}
+</tbody>
+
+            </table>
+        {{else}}
+            <p class="no-reservations">You have no reservations at the moment.</p>
+             <div class="no-reservations-action">
+                <a href="/travel" class="btn explore-btn">Check Out Our Trips</a>
+            </div>
+        {{/if}}
+    </div>
+    {{> footer}}
+</body>
+</html>

@@ -1,0 +1,32 @@
+<div class="layout-container">
+    <!-- Sidebar -->
+    <nav class="sidebar">
+     
+      <ul class="sidebar-menu">
+        <li>
+          <a routerLink="list-trips" routerLinkActive="active">
+            <span class="menu-icon">✈️</span>
+            Travel
+          </a>
+        </li>
+        <li>
+          <a routerLink="/users" routerLinkActive="active">
+            <span class="menu-icon">👤</span>
+            Users
+          </a>
+        </li>
+        <li>
+          <a routerLink="/settings" routerLinkActive="active">
+            <span class="menu-icon">⚙️</span>
+            Settings
+          </a>
+        </li>
+      </ul>
+    </nav>
+  
+    <!-- Main Content -->
+    <div class="content">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+  
