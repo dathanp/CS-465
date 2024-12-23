@@ -2,7 +2,7 @@ Architecture
 Compare and contrast the types of frontend development you used in your full stack project, including Express HTML, JavaScript, and the single-page application (SPA).
 Why did the backend use a NoSQL MongoDB database?
 
--So I used Express, HTML, Handlebars, Javascript for my user site and this type of front end development was made for server side rendering that had dynamic content generation. It was made for simpler multi page websites, this type though has limited interactions when compared 
+- So I used Express, HTML, Handlebars, Javascript for my user site and this type of front end development was made for server side rendering that had dynamic content generation. It was made for simpler multi page websites, this type though has limited interactions when compared 
 to the SPA because every action needs a full page to reload.
 The SPA (Single Page Application) was made using Angular so that I could deliver a dynamic and interactive user experience, this has client side rendering which made it much more responsive and faster than the other front end site. This also helps reduce server load because its 
 logic is being handled on the client side and only uses the backend for data interaction. Express is easier to create for smaller projects, you would need strong SEO for the server-side rendering. The Angular SPA is great for complicated applications that are managing lots 
