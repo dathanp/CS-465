@@ -34,10 +34,15 @@ img {
 	padding-top: 20px;
 }
 /** Logo **/
+#logo img {
+    max-height: 60px; /* Adjust to fit your navbar */
+    height: auto; /* Maintain aspect ratio */
+    width: auto;
+}
+
 #logo {
-	float: left;
-	margin-bottom: 20px;
-	margin-left: 49px;
+    padding: 0; /* Ensure it aligns with other <li> elements */
+    margin: 0; /* Adjust spacing if needed */
 }
 /** Navigation **/
 #navigation {
@@ -474,7 +479,6 @@ hr {
 	text-align: right;
 }
 #footer ul.navigation {
-	float: left;
 	display: inline-block;
 	list-style: none;
 	margin: 0;
@@ -506,7 +510,6 @@ hr {
 }
 /** Connect **/
 #connect {
-	float: right;
 	display: inline-block;
 	line-height: 26px;
 	margin: 12px 0 0;
@@ -542,4 +545,397 @@ hr {
 }
 #connect a.googleplus:hover {
 	background-position: 0 -197px;
+}
+
+/* Header Navigation */
+.nav-tabs {
+    display: flex;
+    justify-content: center;
+    background-color: #004d66;
+    padding: 10px 0;
+}
+.nav-tabs li {
+    list-style: none;
+    margin: 0 10px;
+}
+.nav-tabs li a {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    padding: 8px 12px;
+    border-radius: 5px;
+}
+.nav-tabs li a:hover {
+    text-decoration: underline;
+    color: #00c3ff;
+}
+
+
+/* Tabs */
+.tabs {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+}
+.tabs .tab {
+    padding: 10px 20px;
+    margin: 0 5px;
+    border: 1px solid #004d66;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: #f1f1f1;
+    font-weight: bold;
+    color: #004d66;
+}
+.tabs .tab.active {
+    background-color: #004d66;
+    color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border: 2px solid white;
+}
+.tabs .tab:hover {
+    background-color: #003b52;
+    color: white;
+}
+
+/* Table */
+#travel-table {
+    width: 90%;
+    margin: auto;
+    border-collapse: collapse;
+}
+#travel-table th, #travel-table td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: center;
+}
+#travel-table th {
+    background-color: #004d66;
+    color: white;
+    font-weight: bold;
+}
+#travel-table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+#travel-table tr:hover {
+    background-color: #f1f1f1;
+    cursor: pointer;
+}
+
+
+.search-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px 0;
+}
+.search-bar {
+    padding: 8px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    margin-right: 10px;
+    width: 250px;
+}
+.add-trip-btn {
+    padding: 8px 15px;
+    border-radius: 5px;
+    background-color: #004d66;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+}
+.add-trip-btn:hover {
+    background-color: #003b52;
+}
+
+/* Pagination */
+.pagination {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+}
+.pagination a {
+    padding: 8px 15px;
+    margin: 0 5px;
+    text-decoration: none;
+    border: 1px solid #004d66;
+    border-radius: 5px;
+    color: #004d66;
+    font-weight: bold;
+}
+.pagination a:hover {
+    background-color: #004d66;
+    color: white;
+}
+
+#reservations-page {
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+#reservations-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+#reservations-table th, #reservations-table td {
+    border: 1px solid #ccc;
+    padding: 10px;
+    text-align: left;
+}
+
+#reservations-table th {
+    background-color: #f4f4f4;
+}
+
+.error-message {
+    color: red;
+    font-weight: bold;
+}
+
+/* Reservations Page */
+.container {
+    margin: 20px auto;
+    max-width: 1200px;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.reservations-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+}
+
+.reservations-table th,
+.reservations-table td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+.reservations-table th {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.reservations-table tr:hover {
+    background-color: #f1f1f1;
+}
+
+.error-message {
+    color: red;
+    font-weight: bold;
+    text-align: center;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f5dc;
+    margin: 0;
+    padding: 20px;
+    color: #333;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.page-title {
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.reservations-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.reservations-table th, .reservations-table td {
+    border: 1px solid #ccc;
+    padding: 10px;
+    text-align: left;
+}
+
+.reservations-table th {
+    background-color: #f4a460;
+    color: white;
+    font-weight: bold;
+}
+
+.reservations-table tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.no-reservations {
+    text-align: center;
+    font-size: 18px;
+    color: #888;
+    margin-top: 20px;
+}
+
+.status.confirmed {
+    color: green;
+    font-weight: bold;
+}
+
+.status.cancelled {
+    color: red;
+    font-weight: bold;
+}
+
+.trip-thumbnail {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    border-radius: 4px;
+}
+
+.btn {
+    display: inline-block;
+    padding: 5px 10px;
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+    background-color: #007bff;
+    font-size: 14px;
+    margin-right: 5px;
+}
+
+.btn.cancel-btn {
+    background-color: #dc3545;
+}
+
+.btn:hover {
+    opacity: 0.9;
+}
+
+/* Center the login form */
+#login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80vh; 
+    flex-direction: column;
+    text-align: center;
+}
+
+/* Style the login box */
+#login-box {
+    width: 300px;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Form input styles */
+#login-box label {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 5px;
+    text-align: left;
+}
+
+#login-box input {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+/* Button styles */
+.login-btn {
+    width: 100%;
+    padding: 10px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+.login-btn:hover {
+    background-color: #218838;
+}
+
+/* Links styling */
+.login-links a {
+    display: block;
+    margin-top: 10px;
+    font-size: 14px;
+    color: #0066cc;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.login-links a:hover {
+    color: #004d99;
+    text-decoration: underline;
+}
+
+/* Styling for "Need an Account?" button */
+.register-btn {
+    background-color: #f0ad4e;
+    color: white;
+    border: none;
+    padding: 10px;
+    font-size: 14px;
+    border-radius: 4px;
+    cursor: pointer;
+    text-align: center;
+    display: block;
+    margin: 15px auto;
+    width: 100%;
+    transition: background-color 0.3s;
+}
+
+.register-btn:hover {
+    background-color: #ec971f;
+}
+
+.no-reservations-action {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px; 
+}
+
+.explore-btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #ec971f; 
+    color: white;
+    font-size: 1rem;
+    font-weight: bold;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+	justify-items: center;
+}
+
+.explore-btn:hover {
+    background-color: #ca7f16; 
 }

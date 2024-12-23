@@ -1,0 +1,32 @@
+<div class="admin-reservations-container">
+    <h1>All Reservations</h1>
+    <div *ngIf="errorMessage" class="error-message">
+      {{ errorMessage }}
+    </div>
+    <table *ngIf="reservations.length > 0" class="reservations-table">
+      <thead>
+        <tr>
+          <th>User</th>
+          <th>Trip</th>
+          <th>Reservation Date</th>
+          <th>Start Date</th>
+          <th>Status</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let reservation of reservations">
+          <td>{{ reservation.userId.name || 'N/A' }}</td>
+          <td>{{ reservation.tripId.name || 'N/A' }}</td>
+          <td>{{ reservation.reservationDate | date: 'mediumDate' }}</td>
+          <td>{{ reservation.tripId.start | date: 'mediumDate' }}</td>
+          <td>{{ reservation.status }}</td>
+          <td>
+            <button (click)="cancelReservation(reservation._id)" class="btn cancel-btn">Cancel</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <p *ngIf="reservations.length === 0">No reservations found.</p>
+  </div>
+  
